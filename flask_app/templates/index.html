@@ -12,6 +12,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="alert">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="alert-danger">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
         <form action="/process" method="POST">
             <div class="form-row">
                 <div class="col-2">
